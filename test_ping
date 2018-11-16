@@ -1,0 +1,8 @@
+- hosts: "{{ host }}"
+  remote_user: root
+  gather_facts: True
+  
+  roles:
+   - "{{ role }}"
+  tasks:
+   - ping:
