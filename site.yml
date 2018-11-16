@@ -1,5 +1,7 @@
 - hosts: "{{ host }}"
-  user: root
+  remote_user: root
+  gather_facts: True
+  
   roles:
    - "{{ role }}"
 
