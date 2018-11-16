@@ -1,4 +1,4 @@
-- hosts: web_130
+- hosts: 130
   user: root
   roles:
    - nginx
