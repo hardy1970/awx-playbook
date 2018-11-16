@@ -1,5 +1,5 @@
-- hosts: 130
+- hosts: { host }
   user: root
   roles:
-   - nginx
+   - { role }
 
