@@ -4,7 +4,7 @@
 - name: set selinux disabled
   shell: /usr/sbin/setenforce 0
  
- - name: yum update
+- name: yum update
    yum:
      name: "*"
      state: latest
