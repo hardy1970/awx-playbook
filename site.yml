@@ -1,0 +1,5 @@
+- hosts: web_130
+  user: root
+  roles:
+   - nginx
+
