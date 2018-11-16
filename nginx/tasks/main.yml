@@ -5,9 +5,9 @@
   shell: /usr/sbin/setenforce 0
  
 - name: yum update
-   yum:
-     name: "*"
-     state: latest
+  yum:
+    name: "*"
+    state: latest
     
 - name: Rebuild the yum cache
   shell: yum update -y && yum clean all &&  yum makecache
