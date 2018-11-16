@@ -1,0 +1,33 @@
+- name: stop iptables
+  service: name=firewalld state=stopped
+
+- name: set selinux disabled
+  command: setenforce 0
+
+- name: Rebuild the yum cache
+  shell: yum update -y && yum clean all &&  yum makecache
+
+- name: Install libselinux-python package
+  yum: name=libselinux-python state=installed
+
+- name: Install epel-release
+  yum: name=epel-release state=installed
+
+- name: Install nginx package
+  yum: name=nginx state={{item.state}}
+  with_items:
+    - state: "absent"
+    - state: "installed"
+
+- name: set nginx parameter
+  set_fact: worker_processes="{{ansible_processor_cores}}"
+
+
+- name: Create some directory
+  file: path={{item.path}} state=directory owner=nginx group=nginx mode=0755
+  with_items:
+    - path: "{{proxy_cache_path}}/temp"
+    - path: "{{proxy_cache_path}}/cache"
+    - path: "{{nginx_log_path}}"
+  notify: restart nginx
+

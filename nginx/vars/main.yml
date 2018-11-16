@@ -1,0 +1,12 @@
+error_log_path: /var/log/nginx/error.log
+error_log_level: debug
+access_log_path: /var/log/nginx/access.log
+nginx_pid_path: /var/run/nginx.pid
+worker_connections_size: 10240
+keys_zone: one_cache
+keys_zone_size: 1024m
+inactive_day: 1d
+max_size: 10g
+
+proxy_cache_path: /var/proxy_cache
+nginx_log_path: /var/log/nginx
