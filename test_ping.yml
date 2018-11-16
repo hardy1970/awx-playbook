@@ -2,7 +2,7 @@
   remote_user: root
   gather_facts: True
   
-  roles:
-   - "{{ role }}"
+  #roles:
+  # - "{{ role }}"
   tasks:
    - ping:
