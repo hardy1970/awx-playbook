@@ -1,6 +1,3 @@
-- name: stop iptables
-  service: name=firewalld state=stopped
-
 - name: set selinux disabled
   command: setenforce 0
 
