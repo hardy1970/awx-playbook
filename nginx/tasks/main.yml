@@ -1,9 +1,10 @@
 #- name: stop iptables
 #  service: name=firewalld state=stopped
 #  
-#- name: set selinux disabled
-#  shell: setenforce 0
-#
+
+- name: set selinux disabled
+  shell: /usr/sbin/setenforce 0
+
 
 - name: Rebuild the yum cache
   shell: yum update -y && yum clean all &&  yum makecache
