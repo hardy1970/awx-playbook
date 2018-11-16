@@ -1,5 +1,5 @@
 - name: set selinux disabled
-  command: setenforce 0
+  shell: setenforce 0
 
 - name: Rebuild the yum cache
   shell: yum update -y && yum clean all &&  yum makecache
