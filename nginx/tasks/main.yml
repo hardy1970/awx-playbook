@@ -8,7 +8,8 @@
 
 - name: Rebuild the yum cache
   shell: yum update -y && yum clean all &&  yum makecache
-  warn: no
+  args:
+    warn: no
 
 - name: Install libselinux-python package
   yum: name=libselinux-python state=installed
